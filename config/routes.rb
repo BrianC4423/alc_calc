@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  root 'brews#index'
+
+  match "/auth/:provider/callback" => "sessions#create", via: :all
+  match "/signout" => "sessions#destroy", as: :signout, via: :all
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
